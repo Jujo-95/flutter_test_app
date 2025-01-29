@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/widgets/chips_filter.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,7 +12,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ResponsiveApp(),
+      home: MultiProvider(
+        providers: [ChangeNotifierProvider(create: (_) => CharacterProvider()  )],
+        child: ResponsiveApp()),
     );
   }
 }
@@ -49,7 +53,10 @@ class _ResponsiveAppState extends State<ResponsiveApp> {
               ]
             ),
           Expanded(
-            child: Placeholder(
+            child: Row(
+              children: [
+                ChipsFilter(), Expanded(child: FilteredCharacterList())
+              ],
             ),
           ),
         ],
