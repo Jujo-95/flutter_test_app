@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/widgets/chips_filter.dart';
+import 'package:flutter_test_app/models/character.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_test_app/widgets/chips_filter.dart';
+import 'package:flutter_test_app/providers/characters_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(CharacterAdapter());
+  Hive.registerAdapter(OriginAdapter());
+  await Hive.openBox<Character>('characters');
   runApp(const MainApp());
 }
 
@@ -11,10 +19,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MultiProvider(
-        providers: [ChangeNotifierProvider(create: (_) => CharacterProvider()  )],
-        child: ResponsiveApp()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CharacterProvider()),
+      ],
+      child: const MaterialApp(
+        home: ResponsiveApp(),
+      ),
     );
   }
 }
@@ -43,7 +54,8 @@ class _ResponsiveAppState extends State<ResponsiveApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: 
+      Row(
         children: [
           if (wideScreen)
             NavigationRail(
@@ -52,30 +64,24 @@ class _ResponsiveAppState extends State<ResponsiveApp> {
               ,NavigationRailDestination(icon: Icon(Icons.mail), label: Text('Mail'))
               ]
             ),
+    
           Expanded(
-            child: Row(
+            child: 
+            Row(
               children: [
                 ChipsFilter(), Expanded(child: FilteredCharacterList())
               ],
-            ),
-          ),
+            ) 
+          ) 
         ],
       ),
       bottomNavigationBar: wideScreen
           ? null
-          : Column(
-            children: [
-              Expanded(
-            child: Placeholder(
-            ),
-          ),
-              NavigationBar(
-                
-                selectedIndex: 0,
-                  destinations: [  NavigationDestination(icon: Icon(Icons.inbox_rounded), label: 'Inbox')
-                  ,NavigationDestination(icon: Icon(Icons.mail), label: 'Mail')]
-              ),
-            ],
+          : NavigationBar(
+            
+            selectedIndex: 0,
+              destinations: [  NavigationDestination(icon: Icon(Icons.inbox_rounded), label: 'Inbox')
+              ,NavigationDestination(icon: Icon(Icons.mail), label: 'Mail')]
           )
     );
   }

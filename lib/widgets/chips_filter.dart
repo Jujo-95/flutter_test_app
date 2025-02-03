@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/models/models.dart';
+import 'package:flutter_test_app/models/character.dart';
+import 'package:flutter_test_app/providers/characters_provider.dart';
+import 'package:flutter_test_app/services/api_service.dart';
 import 'package:provider/provider.dart';
-
-
-class CharacterProvider with ChangeNotifier {
-  String _statusFilter = ""; 
-
-  String get statusFilter => _statusFilter;
-
-  void setStatusFilter(String status) {
-    _statusFilter = status;
-    notifyListeners(); 
-  }
-}
-
-
-
 
 class ChipsFilter extends StatelessWidget {
 

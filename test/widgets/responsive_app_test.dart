@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_test_app/main.dart';
-import 'package:flutter_test_app/widgets/chips_filter.dart';
+import 'package:flutter_test_app/providers/characters_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

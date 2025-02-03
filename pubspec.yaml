@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  hive: 
+  hive_flutter: 
 
 dev_dependencies:
   flutter_test:
@@ -16,6 +18,9 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   http:
   provider: ^6.0.5
+  hive_generator: 
+  build_runner: 
+
 
 flutter:
   uses-material-design: true
