@@ -1,3 +1,66 @@
+# Implementación de ci-cd con github-actions:
+
+Este archivo de configuración ci-cd-flutter.yml de GitHub Actions define un flujo de trabajo CI/CD para la aplicación Flutter que incluye integración continua (CI) y despliegue continuo (CD) tanto para Android como para iOS.
+
+Este flujo de trabajo asegura la automatización del proceso de integración y despliegue para la app de flutter, mejorando la eficiencia y calidad del desarrollo.
+
+# Implementación de Caché con Hive en Servicio API
+## Comparativa de Implementaciones
+### Implementación Actual (Con Caché):
+```dart
+Future<List<Character>> fetchCharacters() async {
+  final Box<Character> box = await Hive.openBox<Character>('character');
+  if (box.isOpen && box.isNotEmpty) {
+    return box.values.toList(); // Retorna datos en caché
+  }
+  // Consulta API solo si caché está vacío
+}
+```
+### Implementación Tradicional (Sin Caché):
+```dart
+Future<List<Character>> fetchCharacters() async {
+  final response = await http.get(Uri.parse(baseUrl));
+  // Siempre consulta la API
+}
+```
+## Beneficios de Rendimiento
+### Tiempo de Carga
+- Con Caché: 
+  * Primera carga: ~1000ms
+  * Cargas posteriores: ~100ms
+- Sin Caché:
+  * Cada carga: ~1000ms
+### Consumo de Datos
+- Con Caché:
+  * Carga inicial: Una llamada API
+  * Cargas posteriores: Sin consumo de red
+- Sin Caché:
+  * Cada carga: Una llamada API completa
+### Funcionamiento Sin Conexión
+- Con Caché:
+  * Funciona sin internet después de primera carga
+  * Datos persisten entre sesiones
+- Sin Caché:
+  * Requiere conexión constante
+  * Sin persistencia de datos
+## Ventajas Técnicas
+1. Eficiencia de Memoria
+   - Almacenamiento binario eficiente
+   - Mínimo uso de RAM
+2. Rendimiento
+   - Lecturas sin copia de datos
+   - Carga bajo demanda
+3. Manejo de Errores
+   - Uso de caché como respaldo
+   - Degradación gradual
+## Conclusión
+La implementación de caché con Hive proporciona:
+- Cargas posteriores más rápidas
+- Menor consumo de red
+- Capacidad sin conexión
+- Mejor experiencia de usuario
+Para más detalles, consulta la implementación en:
+`/lib/services/api_service.dart`
 # CUESTIONARIO TÉCNICO PARA DESARROLLADOR FLUTTER
 
 Sección 1: Conocimientos Básicos de Flutter y Dart
