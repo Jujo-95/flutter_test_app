@@ -1,12 +1,14 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_test_app/models/character.dart';
 
 
 class ApiService {
-  final String baseUrl = "https://rickandmortyapi.com/api/character";
+  final String baseUrl;
+  final http.Client client;
+
+  ApiService({http.Client? client, this.baseUrl = "https://rickandmortyapi.com/api/character"}) : client = client ?? http.Client();
   
 
   Future<List<Character>> fetchCharacters() async {

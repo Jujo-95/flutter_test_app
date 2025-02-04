@@ -34,5 +34,6 @@ void main() {
 
     // Verify that the NavigationRail is not shown
     expect(find.byType(NavigationRail), findsNothing);
+    expect(find.byType(NavigationBar), findsOneWidget);
   });
 }
