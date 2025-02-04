@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_test_app/models/character.dart';
@@ -35,7 +34,6 @@ class ApiService {
         throw Exception("Error al obtener los personajes");
       }
     } catch (e) {
-      print("Error: $e");
       throw Exception("No se pudo conectar con la API");
     }
   }

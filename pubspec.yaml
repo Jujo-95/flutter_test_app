@@ -10,14 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
   hive: 
-  hive_flutter: 
+  hive_flutter:
+  provider: any
+  http:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  http:
-  provider: ^6.0.5
   hive_generator: 
   build_runner: 
 
