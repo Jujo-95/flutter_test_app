@@ -13,6 +13,11 @@ dependencies:
   hive_flutter:
   provider: any
   http:
+  firebase_core: ^3.10.1
+  firebase_auth: ^5.3.4
+  go_router: 
+  cloud_firestore: ^5.6.3
+  google_sign_in: ^6.2.2
 
 dev_dependencies:
   flutter_test:
