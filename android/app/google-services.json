@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "430171387813",
+    "project_id": "vepart-app",
+    "storage_bucket": "vepart-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430171387813:android:1daa8f101e9972ffba9a4c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_test_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430171387813-3utuj9u31do20dch3rcbaone56gm302m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_test_app",
+            "certificate_hash": "0866874e09a5c066ebd49c1f254ab722770fbf08"
+          }
+        },
+        {
+          "client_id": "430171387813-nj9nr17chu7sdi6ae93nb99l9tafmpub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9KzAxxHXqe6rD37uZ2XA3BncqK7tNtXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430171387813-nj9nr17chu7sdi6ae93nb99l9tafmpub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "430171387813-g7cpb2b942bot13f2nvvh246hd5upnut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterTestApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
